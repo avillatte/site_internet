@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - KM Éducateur Canin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <img src="img/logo.jpeg" alt="Logo KM" class="logo-img">
+        <span class="logo-text">KM éducateur canin</span>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Accueil <span class="dog-icon">🐕</span></a></li>
+        <li><a href="services.html" class="active">Services <span class="dog-icon">🐕</span></a></li>
+        <li><a href="apropos.html">À propos <span class="dog-icon">🐕</span></a></li>
+        <li><a href="contact.html">Contact <span class="dog-icon">🐕</span></a></li>
+        <li><a href="blog.html">Blog <span class="dog-icon">🐕</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="bg-image" style="background-image: url('img/services-banner.jpg')"></div>
+    <h1 class="animated-text">Nos Services d'Éducation Canine</h1>
+    <p>Des solutions adaptées à chaque chien et chaque maître</p>
+  </section>
+
+  <section class="services-grid">
+    <div class="service-card" data-service="education">
+      <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=400&h=300&fit=crop" alt="Éducation de base" class="service-img">
+      <div class="service-content">
+        <h2>Éducation de Base</h2>
+        <p>Apprentissage des commandes essentielles : assis, couché, pas bouger, rappel...</p>
+        <div class="service-expand">+</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="comportement">
+      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=300&fit=crop" alt="Problèmes de comportement" class="service-img">
+      <div class="service-content">
+        <h2>Problèmes Comportementaux</h2>
+        <p>Solutions pour l'agressivité, l'anxiété, les aboiements excessifs...</p>
+        <div class="service-expand">+</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="socialisation">
+      <img src="https://images.unsplash.com/photo-1554456854-56aafc8d6a0d?w=400&h=300&fit=crop" alt="Socialisation" class="service-img">
+      <div class="service-content">
+        <h2>Socialisation</h2>
+        <p>Aider votre chien à bien interagir avec ses congénères et son environnement</p>
+        <div class="service-expand">+</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="visio">
+      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=300&fit=crop" alt="Consultation en visio" class="service-img">
+      <div class="service-content">
+        <h2>Consultation Visio</h2>
+        <p>Bilan et conseils à distance pour un premier contact ou un suivi régulier</p>
+        <div class="service-expand">+</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="balade">
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=300&fit=crop" alt="Balade éducative" class="service-img">
+      <div class="service-content">
+        <h2>Balades Éducatives</h2>
+        <p>Apprentissage en situation réelle lors de promenades encadrées</p>
+        <div class="service-expand">+</div>
+      </div>
+    </div>
+
+    <div class="service-card" data-service="chieniot">
+      <img src="https://images.unsplash.com/photo-1558322397-187d27a8e6e7?w=400&h=300&fit=crop" alt="Éducation chiot" class="service-img">
+      <div class="service-content">
+        <h2>Éducation Chiot</h2>
+        <p>Programme spécialisé pour les jeunes chiens de 2 à 12 mois</p>
+        <div class="service-expand">+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="avis">
+    <h2>Ils nous font confiance 🐾</h2>
+    <div id="avis-google">
+      <p>[Les avis Google apparaîtront ici]</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#" class="social-link">Facebook</a>
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">LinkedIn</a>
+      </div>
+      <p>&copy; 2025 KM Éducateur Canin - Site refait par Alexis</p>
+    </div>
+  </footer>
+
+  <!-- Popup pour les services -->
+  <div id="servicePopup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h2 id="popupTitle"></h2>
+      <div id="popupContent"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Données des services
+      const servicesData = {
+        education: {
+          title: "Éducation de Base",
+          content: `
+            <h3>Les fondamentaux pour une vie harmonieuse</h3>
+            <p>Notre programme d'éducation de base couvre toutes les commandes essentielles pour une cohabitation sereine :</p>
+            <ul>
+              <li>📝 <strong>Assis, Couché, Debout</strong> - Les positions de base</li>
+              <li>🎯 <strong>Le Rappel</strong> - La sécurité avant tout</li>
+              <li>🛑 <strong>Pas Bouger</strong> - La maîtrise de l'immobilité</li>
+              <li>🚶 <strong>Marche en Laisse</strong> - Des balades agréables</li>
+              <li>🚫 <strong>Stop et Non</strong> - Les interdits</li>
+            </ul>
+            <p><strong>Durée :</strong> 5 à 10 séances selon les besoins</p>
+            <p><strong>Tarif :</strong> À partir de 45€ la séance</p>
+            <a href="contact.html" class="btn-reserver">Réserver une séance</a>
+          `
+        },
+        comportement: {
+          title: "Problèmes Comportementaux",
+          content: `
+            <h3>Solutions personnalisées</h3>
+            <p>Nous intervenons sur les troubles du comportement les plus courants :</p>
+            <ul>
+              <li>😠 <strong>Agressivité</strong> - Envers les humains ou autres chiens</li>
+              <li>😰 <strong>Anxiété de séparation</strong> - Votre chien détruit en votre absence</li>
+              <li>🗣️ <strong>Aboiements excessifs</strong> - Nuisance pour le voisinage</li>
+              <li>🏠 <strong>Malpropreté</strong> - Propreté non acquise</li>
+              <li>😨 <strong>Peur et phobies</strong> - Peur des bruits, situations...</li>
+            </ul>
+            <p><strong>Méthode :</strong> Bilan comportemental complet + programme personnalisé</p>
+            <p><strong>Tarif :</strong> Sur devis après évaluation</p>
+          `
+        },
+        socialisation: {
+          title: "Socialisation",
+          content: `
+            <h3>Un chien bien dans ses pattes</h3>
+            <p>Programme de socialisation pour chiens craintifs, réactifs ou simplement jeunes :</p>
+            <ul>
+              <li>🐕‍🦺 <strong>Rencontres contrôlées</strong> - Avec des chiens équilibrés</li>
+              <li>🌳 <strong>Sorties en groupe</strong> - Apprentissage en situation réelle</li>
+              <li>🏙️ <strong>Découverte environnementale</strong> - Ville, campagne, transports...</li>
+              <li>👨‍👩‍👧‍👦 <strong>Interaction humaine</strong> - Avec des personnes variées</li>
+            </ul>
+            <p><strong>Bénéfices :</strong> Confiance en soi, diminution du stress, meilleure adaptation</p>
+            <p><strong>Tarif :</strong> 50€ la séance collective</p>
+          `
+        },
+        visio: {
+          title: "Consultation Visio",
+          content: `
+            <h3>Conseils à distance</h3>
+            <p>Idéal pour un premier contact, un suivi régulier ou pour les personnes éloignées :</p>
+            <ul>
+              <li>💻 <strong>Bilan initial</strong> - Analyse de votre situation</li>
+              <li>🎯 <strong>Conseils personnalisés</strong> - Programme d'exercices</li>
+              <li>📞 <strong>Suivi régulier</strong> - Ajustements du programme</li>
+              <li>🆘 <strong>Urgences comportementales</strong> - Conseils immédiats</li>
+            </ul>
+            <p><strong>Avantages :</strong> Gain de temps, flexibilité horaire, pas de déplacement</p>
+            <p><strong>Tarif :</strong> 35€ la consultation de 45 minutes</p>
+            <a href="#visio" class="btn-reserver" onclick="openVisioBooking()">Prendre RDV Visio</a>
+          `
+        },
+        balade: {
+          title: "Balades Éducatives",
+          content: `
+            <h3>Apprendre en marchant</h3>
+            <p>Des séances d'éducation lors de promenades en petit groupe :</p>
+            <ul>
+              <li>🌲 <strong>Environnement naturel</strong> - Forêts, parcs, espaces verts</li>
+              <li>👥 <strong>Groupes de 3-4 chiens</strong> - Taille optimale pour l'apprentissage</li>
+              <li>🎓 <strong>Exercices pratiques</strong> - Rappel, marche en laisse, rencontres</li>
+              <li>📊 <strong>Progression individualisée</strong> - Chaque chien à son rythme</li>
+            </ul>
+            <p><strong>Durée :</strong> 1h30 de balade éducative</p>
+            <p><strong>Tarif :</strong> 40€ par séance</p>
+          `
+        },
+        chieniot: {
+          title: "Éducation Chiot",
+          content: `
+            <h3>Les bases dès le plus jeune âge</h3>
+            <p>Programme spécialisé pour les chiots de 2 à 12 mois :</p>
+            <ul>
+              <li>🏠 <strong>Propreté</strong> - Méthodes douces et efficaces</li>
+              <li>🦴 <strong>Inhibition de la morsure</strong> - Jeu sans danger</li>
+              <li>🧸 <strong>Gestion de la solitude</strong> - Prévention de l'anxiété</li>
+              <li>👋 <strong>Manipulation</strong> - Préparation aux soins vétérinaires</li>
+              <li>🌍 <strong>Découverte du monde</strong> - Socialisation précoce</li>
+            </ul>
+            <p><strong>Âge idéal :</strong> Dès 2 mois jusqu'à 1 an</p>
+            <p><strong>Tarif :</strong> Forfait 5 séances : 200€</p>
+          `
+        }
+      };
+
+      // Gestion des popups
+      const serviceCards = document.querySelectorAll('.service-card');
+      const servicePopup = document.getElementById('servicePopup');
+      const popupTitle = document.getElementById('popupTitle');
+      const popupContent = document.getElementById('popupContent');
+      const closePopup = document.querySelector('.close-popup');
+
+      serviceCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          const serviceType = card.getAttribute('data-service');
+          const serviceData = servicesData[serviceType];
+          
+          if (serviceData) {
+            popupTitle.textContent = serviceData.title;
+            popupContent.innerHTML = serviceData.content;
+            servicePopup.style.display = 'block';
+          }
+        });
+      });
+
+      closePopup.addEventListener('click', () => {
+        servicePopup.style.display = 'none';
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === servicePopup) {
+          servicePopup.style.display = 'none';
+        }
+      });
+    });
+
+    function openVisioBooking() {
+      // Redirection vers la page de contact avec pré-remplissage pour visio
+      window.location.href = 'contact.html?service=visio';
+    }
+  </script>
+</body>
+</html>
