@@ -87,11 +87,6 @@ nav a:hover {
   background: rgba(241, 196, 15, 0.1);
 }
 
-nav a.active {
-  color: #f1c40f;
-  background: rgba(241, 196, 15, 0.2);
-}
-
 nav .dog-icon {
   display: inline-block;
   margin-left: 5px;
