@@ -87,6 +87,7 @@ nav a:hover {
   background: rgba(241, 196, 15, 0.1);
 }
 
+
 nav .dog-icon {
   display: inline-block;
   margin-left: 5px;
@@ -106,7 +107,7 @@ nav a:hover .dog-icon {
 /* ================== */
 .hero {
   position: relative;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,7 +120,7 @@ nav a:hover .dog-icon {
 }
 
 .hero img {
-  max-width: 20%;
+  max-width: 25%;
   opacity: 50%;
   border-radius: 15px;
   margin-top: 10px;
@@ -892,8 +893,8 @@ footer {
   }
   
   .hero {
-    height: 70vh;
-    padding-top: 80px;
+    height: 80vh;
+    padding-top: 20px;
   }
   
   .hero h1 {
