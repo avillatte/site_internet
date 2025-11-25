@@ -177,7 +177,6 @@ nav a:hover .dog-icon {
 }
 
 .btn-reserver::after {
-  content: "🐶";
   position: absolute;
   left: -40px;
   top: 50%;
